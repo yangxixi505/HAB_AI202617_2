@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="keywords" content="#">
+<meta name="description" content="#">
+<title>Greenpodha- Environmental Html5 Template | Blog Details</title>
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="assets/images/favicon.ico">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+<!-- Bootstrap -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<!-- Fontawesome -->
+<link href="assets/css/font-awesome.css" rel="stylesheet">
+<!-- Flaticons -->
+<link href="assets/css/font/flaticon.css" rel="stylesheet">
+<!-- Slick Slider -->
+<link href="assets/css/slick.css" rel="stylesheet">
+<!-- Range Slider -->
+<link href="assets/css/ion.rangeSlider.min.css" rel="stylesheet">
+<!-- Datepicker -->
+<link href="assets/css/datepicker.css" rel="stylesheet">
+<!-- magnific popup -->
+<link href="assets/css/magnific-popup.css" rel="stylesheet">
+<!-- Nice Select -->
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<!-- Custom Stylesheet -->
+<link href="assets/css/style.css" rel="stylesheet">
+<!-- Custom Responsive -->
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<!-- 使用传统脚本方式引入 Three.js（推荐，兼容性更好） -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+ <style>
+    .post-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
+       /* 小标题样式 */
+.subtitle {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #333;
+    margin: 30px 0 15px 0;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+
+/* 基础内容包装器样式 */
+.content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+/* 图片在左边的样式（默认） */
+.content-wrapper.image-left {
+    flex-direction: row; /* 图片在左，文字在右 */
+}
+
+/* 图片在右边的样式 */
+.content-wrapper.image-right {
+    flex-direction: row-reverse; /* 图片在右，文字在左 */
+}
+
+/* 图片容器样式 */
+.image-container {
+    flex: 0 0 300px;
+    max-width: 400px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.image-container1 {
+    flex: 0 0 300px;
+    max-width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+/* 文字容器样式 */
+.text-container {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 响应式设计 - 小屏幕时统一垂直排列 */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column !important; /* 强制垂直排列 */
+        gap: 15px;
+    }
+    
+    .image-container {
+        max-width: 100%;
+        height: 200px;
+        flex: none;
+    }
+    
+    .subtitle {
+        font-size: 1.2em;
+        margin: 25px 0 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container {
+        height: 150px;
+    }
+}
+ * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .table-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e1e5eb;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        th:hover {
+            background-color: #34495e;
+        }
+
+        th::after {
+            content: '↕';
+            position: absolute;
+            right: 10px;
+            opacity: 0.6;
+            font-size: 12px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+
+        tr.highlight {
+            background-color: #e8f5e9;
+            font-weight: 500;
+        }
+
+        tr.highlight:hover {
+            background-color: #c8e6c9;
+        }
+
+        .cost {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .method-name {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+            
+            .table-container {
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<!-- Start Topbar -->
+  <header class="header">
+    <div class="navigation-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav>
+              <div class="main-navigation">
+                <!-- <div class="logo"> <a href="index.html"> <img src="assets/images/logo.png" class="img-fluid" alt="logo"> </a> </div> -->
+               <div class="main-menu">
+                  <ul class="custom-flex">
+                    <li class="menu-item"> <a href="index.html">Home</a> </li>
+                    <li class="menu-item active"> <a href="product.html">product</a> </li>
+                    <li class="menu-item"> <a href="Application_Scenarios.html">Application Scenarios</a> </li>
+                    <li class="menu-item"> <a href="Water_Quality_Monitoring.html">Water Quality Monitoring</a> </li>
+                    <li class="menu-item"> <a href="about.html">About Us</a> </li>
+                    <li class="menu-item"> <a href="contact.html">Contact Us</a> </li>
+                  </ul>
+                </div>
+                <div class="hamburger-menu">
+                  <div class="menu-btn"> <span></span> <span></span> <span></span> </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- End Topbar -->
+<!-- Header -->
+<!-- Start Subheader -->
+<div class="subheader normal-bg section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-custom-white">Product</h1>
+        <ul class="custom-flex justify-content-center">
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Subheader -->
+<!-- Start Blog -->
+<section class="section-padding bg-light-white blog-details">
+  <div class="container">
+    <div class="row">
+      <h6 class="d-none">1</h6>
+      <div class="col-12">
+        <div class="blog-details bx-wrapper bg-custom-white padding-20">
+          <!-- article -->
+          <article class="post p-relative">
+            <div class="post-wrapper">
+              <div class="post-img img animate-img mb-xl-20"> <img src="assets/images/blog/product(1).jpg" class="image-fit" alt="img"> </div>
+              <div class="blog-meta bg-custom-white">
+                <div class="post-heading p-relative">
+                  <h2><a href="#" class="text-custom-black">Product Overview</a></h2>
+                </div>
+                <p class="text-light-dark"> Our UAV-based intelligent monitoring system aims to overcome the major limitations of traditional red tide monitoring by providing breakthroughs in speed, automation, accuracy, and predictive capability. Unlike traditional methods that rely on slow manual sampling and laboratory analysis, our monitoring system takes only under one hour to complete the entire process from sampling to analysis, saving more than 90% of operational time.
+ </p>
+                <p class="text-light-dark"> In addition, the system is extremely easy to use. The entire monitoring process is fully autonomous, with preset flight paths and automatic water sample collection. Because the system does not necessitate any technical knowledge to operate, it can be easily used by a wide range of users, from environmental agencies to aquaculture farmers.
+ </p>
+                <p class="text-light-dark"> Accuracy and predictability are also distinguishing factors of the product. The AI model, trained on past harmful algal bloom records and combined with real-time chemical measurements of the water samples, can detect early signs and predict the occurrence of blooms with an accuracy rate of over 70%. Rather than simply detecting algal blooms after they appear, the system gives users time in advance to implement preventive measures.</p>
+                <p class="text-light-dark no-margin">The product also offers high cost-effectiveness and scalability. Each monitoring mission costs less than $10, making its operation economically feasible even at a high rate of monitoring. In addition, as more data about global algal blooms is gathered, the accuracy of the system's prediction grows continuously, due to its machine learning algorithm. Together, these factors make this product a practical solution for sustainable protection against harmful algal blooms.
+ </p>
+              </div>
+            </div>
+          </article>
+          <!-- article -->
+          <hr>
+                <!-- <div class="post-heading p-relative">
+                  <h2><a href="#" class="text-custom-black">Field Flight</a></h2>
+                </div>
+                <video width="640" height="360" controls>
+        <source src="assets\video\VideoHAB.mp4" type="video/mp4">
+        <source src="field-flight.webm" type="video/webm">
+    </video> -->
+        <!-- 3D模型交互模块 -->
+<div id="model-viewer-container">
+    <!-- 模型选择面板 - 修改后的顺序和名称 -->
+    <div id="model-selector">
+        <div class="model-item active" data-model="无人机.gltf">Drone</div>
+        <div class="model-item" data-model="控制器2.glb">Controller</div>
+        <div class="model-item" data-model="检测棒.glb">Detection Rod</div>
+    </div>
+    
+    <!-- 3D模型显示区域 -->
+    <div id="model-canvas-container">
+        <canvas id="model-canvas"></canvas>
+        <div id="loading-indicator">Loading Model...</div>
+        <div id="hint-panel">
+            <div>Mouse Drag: Rotate View</div>
+            <div>Mouse Wheel: Zoom In/Out</div>
+        </div>
+    </div>
+</div>
+
+<style>
+#model-viewer-container {
+    display: flex;
+    height: 600px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 20px 0;
+}
+
+#model-selector {
+    width: 250px;
+    background: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+    padding: 20px 0;
+}
+
+.model-item {
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #495057;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+}
+
+.model-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: #007bff;
+}
+
+.model-item.active {
+    background: rgba(0, 123, 255, 0.1);
+    color: #007bff;
+    border-left-color: #007bff;
+}
+
+#model-canvas-container {
+    flex: 1;
+    position: relative;
+    background: white;
+}
+
+#model-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: none;
+}
+
+#hint-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    backdrop-filter: blur(10px);
+}
+
+#hint-panel div {
+    margin: 4px 0;
+}
+</style>
+
+<script>
+// 使用传统脚本方式（全局变量）
+class ModelViewer {
+    constructor() {
+        // 修复模型路径 - 根据您的文件结构
+        this.models = {
+            '无人机.gltf': 'assets/models/无人机.gltf',  // Drone 现在在第一个
+            '控制器2.glb': 'assets/models/控制器2.glb',   // Controller2 改名为 Controller
+            '检测棒.glb': 'assets/models/检测棒.glb'     // Detection Rod 保持不变
+            // Controller1 已删除
+        };
+        
+        this.currentModel = null;
+        this.scene = null;
+        this.camera = null;
+        this.renderer = null;
+        this.controls = null;
+        
+        // 等待DOM加载完成后再初始化
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+        } else {
+            this.init();
+        }
+    }
+    
+    init() {
+        try {
+            // 检查Three.js是否加载成功
+            if (typeof THREE === 'undefined') {
+                console.error('Three.js is not loaded');
+                return;
+            }
+            
+            // 初始化场景
+            this.scene = new THREE.Scene();
+            this.scene.background = new THREE.Color(0xf0f0f0);
+            
+            // 初始化相机
+            const container = document.getElementById('model-canvas-container');
+            if (!container) {
+                console.error('Canvas container not found');
+                return;
+            }
+            
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            
+            this.camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            this.camera.position.set(5, 5, 5);
+            
+            // 初始化渲染器
+            const canvas = document.getElementById('model-canvas');
+            if (!canvas) {
+                console.error('Canvas element not found');
+                return;
+            }
+            
+            this.renderer = new THREE.WebGLRenderer({ 
+                canvas: canvas,
+                antialias: true 
+            });
+            this.renderer.setSize(width, height);
+            this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            this.renderer.shadowMap.enabled = true;
+            this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            
+            // 初始化控制器
+            if (typeof THREE.OrbitControls !== 'undefined') {
+                this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+                this.controls.enableDamping = true;
+                this.controls.dampingFactor = 0.05;
+                this.controls.screenSpacePanning = false;
+                this.controls.minDistance = 1;
+                this.controls.maxDistance = 50;
+            } else {
+                console.error('OrbitControls not found');
+            }
+            
+            // 添加灯光
+            this.setupLighting();
+            
+            // 设置事件监听
+            this.setupEventListeners();
+            
+            // 启动动画循环
+            this.animate();
+            
+            // 窗口大小调整监听
+            window.addEventListener('resize', () => this.onWindowResize());
+            
+            // 加载默认模型 - 现在默认为 Drone
+            this.loadModel('无人机.gltf');
+            
+        } catch (error) {
+            console.error('Failed to initialize ModelViewer:', error);
+        }
+    }
+    
+    setupLighting() {
+        // 环境光
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        this.scene.add(ambientLight);
+        
+        // 方向光
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(10, 10, 5);
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = 1024;
+        directionalLight.shadow.mapSize.height = 1024;
+        this.scene.add(directionalLight);
+        
+        // 补光
+        const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
+        fillLight.position.set(-5, -5, -5);
+        this.scene.add(fillLight);
+    }
+    
+    setupEventListeners() {
+        // 模型选择事件
+        const modelItems = document.querySelectorAll('.model-item');
+        modelItems.forEach(item => {
+            item.addEventListener('click', () => {
+                modelItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                this.loadModel(item.dataset.model);
+            });
+        });
+    }
+    
+    async loadModel(modelName) {
+        const loadingIndicator = document.getElementById('loading-indicator');
+        if (loadingIndicator) {
+            loadingIndicator.style.display = 'block';
+            loadingIndicator.textContent = 'Loading Model...';
+        }
+        
+        try {
+            // 检查GLTFLoader是否可用
+            if (typeof THREE.GLTFLoader === 'undefined') {
+                throw new Error('GLTFLoader not found. Please check Three.js loading.');
+            }
+            
+            // 清除当前模型
+            if (this.currentModel) {
+                this.scene.remove(this.currentModel);
+                this.currentModel = null;
+            }
+            
+            // 获取模型路径
+            const modelPath = this.models[modelName];
+            if (!modelPath) {
+                throw new Error(`Model path not found for: ${modelName}`);
+            }
+            
+            // 创建加载器
+            const loader = new THREE.GLTFLoader();
+            
+            // 加载模型
+            const gltf = await new Promise((resolve, reject) => {
+                loader.load(
+                    modelPath,
+                    (gltf) => resolve(gltf),
+                    (progress) => {
+                        // 可以在这里添加加载进度显示
+                        if (loadingIndicator) {
+                            const percent = (progress.loaded / progress.total * 100).toFixed(0);
+                            loadingIndicator.textContent = `Loading... ${percent}%`;
+                        }
+                    },
+                    (error) => reject(error)
+                );
+            });
+            
+            this.currentModel = gltf.scene;
+            
+            // 设置模型位置和缩放
+            const box = new THREE.Box3().setFromObject(this.currentModel);
+            const center = box.getCenter(new THREE.Vector3());
+            const size = box.getSize(new THREE.Vector3());
+            
+            // 居中模型
+            this.currentModel.position.x = -center.x;
+            this.currentModel.position.y = -center.y;
+            this.currentModel.position.z = -center.z;
+            
+            // 自动缩放
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const scale = 3 / maxDim; // 调整这个值来改变默认大小
+            this.currentModel.scale.setScalar(scale);
+            
+            // 启用阴影
+            this.currentModel.traverse((child) => {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+            
+            // 添加到场景
+            this.scene.add(this.currentModel);
+            
+            // 重置相机位置
+            if (this.controls) {
+                this.controls.reset();
+                this.camera.position.set(5, 5, 5);
+                this.controls.target.set(0, 0, 0);
+            }
+            
+            console.log(`Model loaded successfully: ${modelName}`);
+            
+        } catch (error) {
+            console.error('Failed to load model:', error);
+            if (loadingIndicator) {
+                loadingIndicator.textContent = 'Failed to load model';
+                // 3秒后隐藏错误信息
+                setTimeout(() => {
+                    loadingIndicator.style.display = 'none';
+                }, 3000);
+            }
+        } finally {
+            // 延迟隐藏加载指示器，让用户看到加载完成
+            setTimeout(() => {
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
+            }, 500);
+        }
+    }
+    
+    onWindowResize() {
+        const container = document.getElementById('model-canvas-container');
+        if (!container) return;
+        
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+        
+        this.camera.aspect = width / height;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(width, height);
+    }
+    
+    animate() {
+        requestAnimationFrame(() => this.animate());
+        
+        if (this.controls) {
+            this.controls.update();
+        }
+        
+        if (this.renderer && this.scene && this.camera) {
+            this.renderer.render(this.scene, this.camera);
+        }
+    }
+}
+
+// 初始化模型查看器
+let modelViewer;
+document.addEventListener('DOMContentLoaded', () => {
+    modelViewer = new ModelViewer();
+});
+</script>
+ <hr>
+
+<br>
+
+<article class="post p-relative">
+            <div class="post-wrapper">
+              <!-- <div class="post-img animate-img mb-xl-20"> <img src="assets/images/blog/blog_large.jpg" class="image-fit" alt="img"> </div> -->
+              <div class="blog-meta bg-custom-white">
+                <div class="post-heading p-relative">
+                  <h2><a href="#" class="text-custom-black">Field Flight</a></h2>          
+<div style="display: flex; justify-content: center; margin: 20px 0;">
+    <video width="800" height="450" controls style="max-width: 90%;">
+        <source src="assets\video\VideoHAB.mp4" type="video/mp4">
+        <source src="field-flight.webm" type="video/webm">
+    </video>
+
+              </div>
+            </div>
+          </article>
+           <hr>
+
+<br>
+ <article class="post p-relative">
+    <div class="post-wrapper">
+        <div class="blog-meta bg-custom-white">
+            <div class="post-heading p-relative">
+                <h2><a href="#" class="text-custom-black">Core components & technology</a></h2>
+            </div>
+            
+            <!-- 智能无人机平台部分 - 图片在左边 -->
+            <div class="section-with-image">
+                <h3 class="subtitle">UAV platform</h3>
+                <div class="content-wrapper image-left">
+                    <div class="image-container">
+                        <img src="assets/images/productsmall1.png" class="image-fit" alt="UAV Platform">
+                    </div>
+                    <div class="text-container">
+                        <p class="text-light-dark">The core of the system is an intelligent, autonomous UAV platform, built for low altitude monitoring of water bodies. The UAV integrates a flight controller with a ground station software, by which users can preset flight routes, altitudes, and sampling points with high precision. This reduces the device’s dependency on trained operators while allowing greater coverage within a single mission.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 水采样模块部分 - 图片在右边 -->
+            <div class="section-with-image">
+                <h3 class="subtitle">Water collection and sensing</h3>
+                <div class="content-wrapper image-right">
+                    <div class="image-container">
+                        <img src="assets/images/sensor1.png" class="image-fit" alt="Sampling Module">
+                    </div>
+                    <div class="text-container">
+                        <p class="text-light-dark">A major technological component of the system is the water sampling module integrated into the UAV. Traditional methods typically use manual sampling or fixed stations. However, this product features a lightweight motor-reel system controlled by an onboard microcontroller raspberry pi. The sampling bottle has a dual-hole design, consisting of a water inlet and an air vent. This way, water pressure will allow the intake of water once the bottle is submerged, while leakage during retrieval is largely prevented.</p>
+                        <p class="text-light-dark">In addition to the sampling equipment, the system also contains a water quality sensing module. After collection of the water sample, the system measures parameters that have correlations to the occurrence of algal blooms, including Chlorophyll, Ammonia Nitrogen, dissolved oxygen, salt concentration, pH, and temperature. The sensors communicate through an RS485 interface that can withstand environmental interference and ensure stable data transfer.
+</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 水质传感模块部分 - 图片在左边 -->
+            <div class="section-with-image">
+                <h3 class="subtitle">AI prediction system</h3>
+                <div class="content-wrapper image-left">
+                      <div class="image-container1">  
+                    <!-- <div class="image-container" style="height: 40px;"></div>  -->
+                        <img src="assets/images/productsmall2.jpg" class="image-fit" alt="Sensing Module">
+                    </div>
+                    <div class="text-container">
+                        <p class="text-light-dark">The analytical core of the system is an AI-driven prediction model trained on past algal bloom events and multi-parameter water quality data. By analyzing real-time readings from sensors, the model can detect warning signs that conventional methods often cannot recognize. Additionally, the AI system continually improves with each new mission data entered into the system and can be customized to more accurately produce predictions of specific water regions.</p>
+                        <p class="text-light-dark">Together, these core technologies, including autonomous UAV control, precise water sampling, high resolution chemical sensing, and adaptive AI analysis, forms a powerful monitoring tool. In addition to providing detection capabilities after an event has already occurred, this product can also produce predictions, supporting proactive management of algal bloom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+ <!-- article -->
+          <article class="post p-relative">
+            <div class="post-wrapper">
+              <!-- <div class="post-img animate-img mb-xl-20"> <img src="assets/images/blog/blog_large.jpg" class="image-fit" alt="img"> </div> -->
+              <div class="blog-meta bg-custom-white">
+                <div class="post-heading p-relative">
+                  <h2><a href="#" class="text-custom-black">Price comparison</a></h2>
+                </div>
+                <div class="table-container">
+        <table id="monitoringTable">
+            <thead>
+                <tr>
+                    <th data-sort="method">Monitoring Method</th>
+                    <th data-sort="upfront">Upfront Cost</th>
+                    <th data-sort="annual">Annual Cost</th>
+                    <th data-sort="speed">Detection Speed</th>
+                    <th data-sort="staff">Staff Required</th>
+                    <th data-sort="perEvent">Cost per Monitoring Event</th>
+                    <th data-sort="coverage">Coverage Area</th>
+                    <th data-sort="limitation">Key Economic Limitations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="method-name">Manual Water Sampling</td>
+                    <td class="cost">~$25,000<br><span class="details">(boats, sampling gear, lab equipment)</span></td>
+                    <td class="cost">~$120,000/year<br><span class="details">(labor, fuel, lab analysis)</span></td>
+                    <td>Days to weeks</td>
+                    <td>4–6 technicians</td>
+                    <td class="cost">~$10,000–$15,000</td>
+                    <td>Local, point-based</td>
+                    <td>High labor cost, slow response increases economic damage</td>
+                </tr>
+                <tr>
+                    <td class="method-name">Satellite Monitoring</td>
+                    <td class="cost">~$40,000<br><span class="details">(data setup, software licenses)</span></td>
+                    <td class="cost">~$80,000/year<br><span class="details">(subscriptions, analysts)</span></td>
+                    <td>2–5 days</td>
+                    <td>2–3 analysts</td>
+                    <td class="cost">~$8,000–$12,000</td>
+                    <td>Regional, limited near shore</td>
+                    <td>Poor coastal resolution, delayed confirmation</td>
+                </tr>
+                <tr>
+                    <td class="method-name">Fixed Sensor Buoys</td>
+                    <td class="cost">~$200,000 per buoy<br><span class="details">(per unit)</span></td>
+                    <td class="cost">~$60,000/year<br><span class="details">(maintenance, calibration)</span></td>
+                    <td>12–24 hours</td>
+                    <td>2–3 technicians</td>
+                    <td class="cost">~$6,000–$8,000</td>
+                    <td>Fixed location only</td>
+                    <td>High capital cost, low spatial flexibility</td>
+                </tr>
+                <tr class="highlight">
+                    <td class="method-name">Our UAV + AI System</td>
+                    <td class="cost">~$3,000<br><span class="details">(single UAV unit)</span></td>
+                    <td class="cost">~$3,600/year<br><span class="details">(maintenance, software, cloud AI)</span></td>
+                    <td>2–6 hours</td>
+                    <td>1 operator</td>
+                    <td class="cost">~$1,000–$2,000</td>
+                    <td>Mobile, targeted coastal zones</td>
+                    <td>Requires UAV deployment and weather windows</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // 表格排序功能
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const column = th.getAttribute('data-sort');
+                const tbody = document.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const isNumeric = column === 'upfront' || column === 'annual' || column === 'perEvent';
+                const index = Array.from(th.parentNode.children).indexOf(th);
+                const isAscending = th.classList.toggle('asc');
+
+                rows.sort((a, b) => {
+                    let aVal = a.children[index].textContent.trim();
+                    let bVal = b.children[index].textContent.trim();
+
+                    if (isNumeric) {
+                        // 提取数字部分进行比较
+                        aVal = parseFloat(aVal.replace(/[^0-9.]/g, '')) || 0;
+                        bVal = parseFloat(bVal.replace(/[^0-9.]/g, '')) || 0;
+                    }
+
+                    if (aVal < bVal) return isAscending ? -1 : 1;
+                    if (aVal > bVal) return isAscending ? 1 : -1;
+                    return 0;
+                });
+
+                // 重新插入行
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    </script>
+    <br>
+                <p class="text-light-dark"> The UAV-based monitoring system offers a clear advantage over existing red tide monitoring methods in terms of cost.
+ </p>
+                <p class="text-light-dark"> Conventional manual sampling involves the usage of boats, trained personnel, and laboratory analysis, thereby involving high upfront costs and recurring annual maintenance costs. Typically, such system can cost over $25,000 to install, with operational costs of around $120,000 per year. Each monitoring event can cost between $10,000 and $15,000, mainly due to the cost of labor and boat usage, with the time taken for detection ranging from days to weeks.
+
+ </p>
+                <p class="text-light-dark"> Satellite monitoring reduces the cost for labor but includes other expenses. Typically, the initial cost for data setup and software licensing may be around $40,000, with an annual expense for analysis of around $80,000. Satellites can cover large areas, but it presents a limitation in resolution for areas near shorelines. Therefore, days may be needed to confirm bloom occurrence. This system typically cost about $8,000 - $12,000 per event.
+</p>
+<p class="text-light-dark"> Fixed sensor buoys are characterized by extremely high start-up costs even though they can provide continuous data. The installation cost of each buoy is estimated at $200,000, with an annual cost of around $60,000 for maintenance and calibration. Though they have high speeds for identification, they are location bound, which means limited coverage, and costs for each monitoring remain in thousands per site.
+</p>
+                <p class="text-light-dark no-margin">​​In contrast, this UAV and AI based monitoring system initially costs approximately $3,000 per UAV unit, with ongoing annual costs for maintenance, software, and cloud-based AI services of around $3,600. The cost of performing each monitoring mission is less than $10, an incredibly low amount compared to any other traditional method. This system only needs one person to attend without requiring expertise, and it offers mobile and targeted coverage for both coastal and inland water bodies. Though the element of weather may need to be considered for UAV deployment, overall, it is one of the most affordable and scalable solutions for continuous monitoring of red tides.
+
+ </p>
+              </div>
+            </div>
+          </article>
+          <!-- article -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- End Blog -->
+
+<!-- Start Footer -->
+<footer class="footer">
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 text-center">
+                    <div class="copyright-text">
+                        <p>© AeroBloom AI 2025 | All Right Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+  <!-- End Footer -->
+<div id="back-top" class="back-top"> <a href="#top"><i class="flaticon-arrows"></i></a> </div>
+<!-- Place all Scripts Here -->
+<!-- jQuery -->
+<script src="assets/js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="assets/js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- Range Slider -->
+<script src="assets/js/ion.rangeSlider.min.js"></script>
+<!-- Slick Slider -->
+<script src="assets/js/slick.min.js"></script>
+<!-- Datepicker -->
+<script src="assets/js/datepicker.js"></script>
+<script src="assets/js/datepicker.en.js"></script>
+<!-- Isotope Gallery -->
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<!-- Nice Select -->
+<script src="assets/js/jquery.nice-select.js"></script>
+<!-- magnific popup -->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!-- Custom Js -->
+<script src="assets/js/custom.js"></script>
+<!-- /Place all Scripts Here -->
+</body>
+</html>
